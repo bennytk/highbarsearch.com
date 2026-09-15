@@ -4,8 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Terms of Use | Highbar Search</title>
-<link rel="icon" type="image/png" href="favicon-h.png" media="(prefers-color-scheme: light)">
-<link rel="icon" type="image/png" href="favicon-h-dark.png" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" href="favicon-h.png" id="favicon">
+<script>
+  (function () {
+    function setFavicon() {
+      var dark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.getElementById("favicon").href = dark ? "favicon-h-dark.png" : "favicon-h.png";
+    }
+    setFavicon();
+    if (window.matchMedia) {
+      window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", setFavicon);
+    }
+  })();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -173,11 +184,11 @@
 
 <header>
   <nav>
-    <a href="homepage-v4.html" class="logo"><img src="logo-new-trimmed.png" alt="Highbar Search"></a>
+    <a href="index.html" class="logo"><img src="logo-new-trimmed.png" alt="Highbar Search"></a>
     <div class="nav-links">
-      <a href="homepage-v4.html#different" class="link">About Us</a>
-      <a href="homepage-v4.html#candidates" class="link">Candidates</a>
-      <a href="homepage-v4.html#companies" class="link">Companies</a>
+      <a href="index.html#different" class="link">About Us</a>
+      <a href="index.html#candidates" class="link">Candidates</a>
+      <a href="index.html#companies" class="link">Companies</a>
       <a href="mailto:ben@highbarsearch.com" class="btn">Reach Out</a>
     </div>
   </nav>
@@ -220,11 +231,11 @@
 
 <footer>
   <div class="wrap footer-inner">
-    <a href="homepage-v4.html" class="logo"><img src="logo-white.png" alt="Highbar Search"></a>
+    <a href="index.html" class="logo"><img src="logo-white.png" alt="Highbar Search"></a>
     <div class="footer-links">
-      <a href="homepage-v4.html#different">About Us</a>
-      <a href="homepage-v4.html#candidates">Candidates</a>
-      <a href="homepage-v4.html#companies">Companies</a>
+      <a href="index.html#different">About Us</a>
+      <a href="index.html#candidates">Candidates</a>
+      <a href="index.html#companies">Companies</a>
       <a href="mailto:ben@highbarsearch.com">Reach Out</a>
     </div>
   </div>
