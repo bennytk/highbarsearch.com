@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | Highbar Search</title>
+<link rel="icon" type="image/png" href="../favicon-h.png" id="favicon">
+<script>
+  (function () {
+    function setFavicon() {
+      var dark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.getElementById("favicon").href = dark ? "../favicon-h-dark.png" : "../favicon-h.png";
+    }
+    setFavicon();
+    if (window.matchMedia) {
+      window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", setFavicon);
+    }
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy: #14233F;
+    --navy-2: #1B3A5C;
+    --navy-light: #B8CCE0;
+    --accent: #C1642F;
+    --panel: #EEF2F7;
+    --text: #2C3540;
+    --muted: #6B7686;
+    --faint: #97A2B0;
+    --rule: #DCE3EC;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #fff;
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.7;
+  }
+
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  @media (max-width: 700px) {
+    .wrap { padding: 0 24px; }
+  }
+
+  header { border-bottom: 1px solid var(--rule); }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 48px;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 700px) { nav { padding: 12px 24px; } }
+
+  nav .logo { display: flex; align-items: center; }
+  nav .logo img { height: 58px; }
+
+  .nav-links { display: flex; align-items: center; gap: 36px; }
+
+  .nav-links a.link {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .nav-links a.link:hover { color: var(--navy-2); }
+
+  @media (max-width: 800px) { .nav-links .link { display: none; } }
+
+  .btn {
+    display: inline-block;
+    background: var(--navy);
+    color: #fff;
+    padding: 12px 26px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.875rem;
+    letter-spacing: 0.2px;
+    border: 1px solid var(--navy);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+
+  .btn:hover {
+    background: var(--navy-2);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(20, 35, 63, 0.18);
+  }
+
+  main { padding: 56px 0 80px; }
+
+  h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .updated {
+    color: var(--faint);
+    font-size: 0.9rem;
+    margin-bottom: 40px;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--navy-2);
+    margin-top: 36px;
+    margin-bottom: 12px;
+  }
+
+  p { margin-bottom: 14px; color: var(--text); }
+
+  ul { margin: 0 0 14px 22px; }
+  li { margin-bottom: 8px; }
+
+  a { color: var(--navy-2); }
+
+  strong { color: var(--navy); }
+
+  footer { background: var(--navy); padding: 40px 0; }
+  footer .wrap { max-width: 1180px; }
+
+  footer .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  footer .logo img {
+    height: 58px;
+  }
+
+  footer .footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
+
+  footer .footer-links a {
+    color: var(--navy-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+  }
+
+  footer .footer-links a:hover { color: #fff; }
+
+  footer .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+  footer .copyright { color: var(--faint); font-size: 0.78rem; }
+  footer .footer-legal { display: flex; gap: 18px; }
+  footer .footer-legal a {
+    color: var(--faint);
+    text-decoration: none;
+    font-size: 0.78rem;
+  }
+  footer .footer-legal a:hover { color: #fff; }
+</style>
+<script>
+  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+  window.addEventListener('pageshow', function () { window.scrollTo(0, 0); });
+</script>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="/" class="logo"><img src="../logo-new-trimmed.png" alt="Highbar Search"></a>
+    <div class="nav-links">
+      <a href="/#different" class="link">About Us</a>
+      <a href="/#candidates" class="link">Candidates</a>
+      <a href="/#companies" class="link">Companies</a>
+      <a href="mailto:ben@highbarsearch.com" class="btn">Reach Out</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="wrap">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: September 15, 2026</p>
+
+    <p>Highbar Search LLC (&ldquo;Highbar,&rdquo; &ldquo;we,&rdquo; &ldquo;us&rdquo;) is a New York-based executive search firm. This policy explains how we collect, use, share, and protect personal information in our recruiting activities and on our website.</p>
+
+    <h2>Information We Collect</h2>
+    <p>We collect information about candidates, prospective candidates, clients, and other business contacts, including:</p>
+    <ul>
+      <li>name and contact information;</li>
+      <li>employment history, education, skills, and other professional background;</li>
+      <li>resumes, LinkedIn profiles, and similar materials;</li>
+      <li>career preferences, compensation expectations, location, and work authorization;</li>
+      <li>notes and transcripts from interviews or conversations; and</li>
+      <li>other information you choose to share with us.</li>
+    </ul>
+    <p>We collect this directly from you or from sources such as public professional profiles, referrals, and clients. Our website has no submission forms; information we hold generally comes from direct contact, such as email.</p>
+
+    <h2>How We Use Information</h2>
+    <p>We use this information to:</p>
+    <ul>
+      <li>identify, evaluate, and present candidates for opportunities;</li>
+      <li>communicate with candidates and clients about searches;</li>
+      <li>manage interview and hiring processes; and</li>
+      <li>operate and improve our business.</li>
+    </ul>
+    <p>Where a lawful basis is required, we rely on legitimate interests in providing executive search services, steps taken at your request, consent where appropriate, or compliance with legal obligations, depending on the activity.</p>
+
+    <h2>How We Share Information</h2>
+    <p>We share information with clients and prospective employers for relevant opportunities, with service providers who support our operations (e.g., email, cloud storage, recruiting or transcription tools), and with advisers, regulators, or law enforcement where necessary or legally required. We do not sell personal information, and we notify candidates before submitting their profile to an employer.</p>
+
+    <h2>Automated Processing and AI Tools</h2>
+    <p>We may use AI or other software to help review resumes, organize information, or transcribe conversations. These tools support our team but do not make final candidate decisions &mdash; a team member is always involved before a candidate is presented to a client. Where notice is legally required for automated employment decision tools (e.g., NYC Local Law 144), we will provide it.</p>
+
+    <h2>Text Messaging</h2>
+    <p>If you&rsquo;ve given us a mobile number, we may occasionally text you about scheduling or opportunities. We don&rsquo;t use automated or mass texting &mdash; messages come individually from our team. Reply STOP or email us to opt out.</p>
+
+    <h2>Cookies and Analytics</h2>
+    <p>Our site may use cookies or analytics tools to understand visitor usage. You can control cookies through your browser, though this may affect site functionality.</p>
+
+    <h2>International Data</h2>
+    <p>We&rsquo;re based in the U.S. and work with candidates and companies globally, so information may be processed in the U.S. or other countries with different data protection laws.</p>
+    <p>If you&rsquo;re in the UK or EEA, we process your data for specific search assignments tied to those regions, using the legal bases above, and honor applicable GDPR rights on request. If you&rsquo;re in Australia, we follow the Australian Privacy Principles regardless of any small business exemption we may currently qualify for. If you&rsquo;re in Canada, we handle your data consistent with PIPEDA, and, if you&rsquo;re in Quebec, with Quebec&rsquo;s Law 25.</p>
+
+    <h2>Data Retention</h2>
+    <p>We generally retain candidate information indefinitely, given the long-term nature of executive search relationships, and don&rsquo;t apply a fixed retention period. If you&rsquo;re in the UK, EEA, Australia, or Canada, we retain your data for no more than three years from our last substantive contact, unless an active search or legal obligation requires longer.</p>
+    <p>We periodically review and delete information no longer relevant to our work, and will delete your information on request unless we have a legal or legitimate business reason to retain it.</p>
+
+    <h2>Your Rights</h2>
+    <p>Depending on where you live, you may have the right to access, correct, delete, restrict, object to, or receive a portable copy of your information. Contact <strong><a href="mailto:ben@highbarsearch.com">ben@highbarsearch.com</a></strong> to make a request; we may verify your identity first, and some rights carry legal exceptions. UK/EEA residents may also lodge a complaint with their local supervisory authority.</p>
+
+    <h2>Security</h2>
+    <p>We use reasonable administrative and technical safeguards to protect personal information, though no method of storage or transmission is fully secure.</p>
+
+    <h2>Third-Party Links</h2>
+    <p>Our site may link to third-party websites; we&rsquo;re not responsible for their privacy practices.</p>
+
+    <h2>Changes to This Policy</h2>
+    <p>We may update this policy periodically; the current version and &ldquo;Last updated&rdquo; date will always be posted here.</p>
+
+    <h2>Contact Us</h2>
+    <p><strong>Highbar Search LLC</strong><br>
+    New York, New York, United States<br>
+    <strong><a href="mailto:ben@highbarsearch.com">ben@highbarsearch.com</a></strong></p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <a href="/" class="logo"><img src="../logo-white.png" alt="Highbar Search"></a>
+    <div class="footer-links">
+      <a href="/#different">About Us</a>
+      <a href="/#candidates">Candidates</a>
+      <a href="/#companies">Companies</a>
+      <a href="mailto:ben@highbarsearch.com">Reach Out</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <div class="copyright">&copy; 2026 Highbar Search LLC. All rights reserved.</div>
+    <div class="footer-legal">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms-of-use/">Terms of Use</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

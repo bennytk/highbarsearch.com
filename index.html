@@ -5,8 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Highbar Search</title>
 <meta name="description" content="Highbar Search helps startups and scale-ups hire emerging leaders from the world's top consulting firms.">
-<link rel="icon" type="image/png" href="favicon-h.png" media="(prefers-color-scheme: light)">
-<link rel="icon" type="image/png" href="favicon-h-dark.png" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" href="favicon-h.png" id="favicon">
+<script>
+  (function () {
+    function setFavicon() {
+      var dark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.getElementById("favicon").href = dark ? "favicon-h-dark.png" : "favicon-h.png";
+    }
+    setFavicon();
+    if (window.matchMedia) {
+      window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", setFavicon);
+    }
+  })();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -733,8 +744,8 @@
   <div class="wrap footer-bottom">
     <div class="copyright">&copy; 2026 Highbar Search LLC. All rights reserved.</div>
     <div class="footer-legal">
-      <a href="privacy-policy.html">Privacy Policy</a>
-      <a href="terms-of-use.html">Terms of Use</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms-of-use/">Terms of Use</a>
     </div>
   </div>
 </footer>

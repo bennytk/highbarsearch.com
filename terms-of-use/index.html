@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Use | Highbar Search</title>
+<link rel="icon" type="image/png" href="../favicon-h.png" id="favicon">
+<script>
+  (function () {
+    function setFavicon() {
+      var dark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.getElementById("favicon").href = dark ? "../favicon-h-dark.png" : "../favicon-h.png";
+    }
+    setFavicon();
+    if (window.matchMedia) {
+      window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", setFavicon);
+    }
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy: #14233F;
+    --navy-2: #1B3A5C;
+    --navy-light: #B8CCE0;
+    --accent: #C1642F;
+    --panel: #EEF2F7;
+    --text: #2C3540;
+    --muted: #6B7686;
+    --faint: #97A2B0;
+    --rule: #DCE3EC;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #fff;
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.7;
+  }
+
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  @media (max-width: 700px) {
+    .wrap { padding: 0 24px; }
+  }
+
+  header { border-bottom: 1px solid var(--rule); }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 48px;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 700px) { nav { padding: 12px 24px; } }
+
+  nav .logo { display: flex; align-items: center; }
+  nav .logo img { height: 58px; }
+
+  .nav-links { display: flex; align-items: center; gap: 36px; }
+
+  .nav-links a.link {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .nav-links a.link:hover { color: var(--navy-2); }
+
+  @media (max-width: 800px) { .nav-links .link { display: none; } }
+
+  .btn {
+    display: inline-block;
+    background: var(--navy);
+    color: #fff;
+    padding: 12px 26px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.875rem;
+    letter-spacing: 0.2px;
+    border: 1px solid var(--navy);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+
+  .btn:hover {
+    background: var(--navy-2);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(20, 35, 63, 0.18);
+  }
+
+  main { padding: 56px 0 80px; }
+
+  h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .updated {
+    color: var(--faint);
+    font-size: 0.9rem;
+    margin-bottom: 40px;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--navy-2);
+    margin-top: 36px;
+    margin-bottom: 12px;
+  }
+
+  p { margin-bottom: 14px; color: var(--text); }
+
+  a { color: var(--navy-2); }
+
+  strong { color: var(--navy); }
+
+  footer { background: var(--navy); padding: 40px 0; }
+  footer .wrap { max-width: 1180px; }
+
+  footer .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  footer .logo img {
+    height: 58px;
+  }
+
+  footer .footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
+
+  footer .footer-links a {
+    color: var(--navy-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+  }
+
+  footer .footer-links a:hover { color: #fff; }
+
+  footer .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+  footer .copyright { color: var(--faint); font-size: 0.78rem; }
+  footer .footer-legal { display: flex; gap: 18px; }
+  footer .footer-legal a {
+    color: var(--faint);
+    text-decoration: none;
+    font-size: 0.78rem;
+  }
+  footer .footer-legal a:hover { color: #fff; }
+</style>
+<script>
+  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+  window.addEventListener('pageshow', function () { window.scrollTo(0, 0); });
+</script>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="/" class="logo"><img src="../logo-new-trimmed.png" alt="Highbar Search"></a>
+    <div class="nav-links">
+      <a href="/#different" class="link">About Us</a>
+      <a href="/#candidates" class="link">Candidates</a>
+      <a href="/#companies" class="link">Companies</a>
+      <a href="mailto:ben@highbarsearch.com" class="btn">Reach Out</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="wrap">
+    <h1>Terms of Use</h1>
+    <p class="updated">Last updated: September 15, 2026</p>
+
+    <p>These Terms govern your use of the Highbar Search LLC (&ldquo;Highbar,&rdquo; &ldquo;we,&rdquo; &ldquo;us&rdquo;) website. By using this site, you agree to them.</p>
+
+    <h2>About Highbar</h2>
+    <p>Highbar provides executive search services. Content on this site is for general information only and guarantees no interview, offer, opportunity, candidate, or search outcome.</p>
+
+    <h2>Website Content</h2>
+    <p>We aim to keep this site accurate and current, but don&rsquo;t guarantee completeness or accuracy. Opportunities, candidate availability, compensation, and timelines may change without notice.</p>
+
+    <h2>Intellectual Property</h2>
+    <p>Unless otherwise noted, all content, branding, and design on this site belong to Highbar and may not be copied, distributed, or used commercially without our permission.</p>
+
+    <h2>Third-Party Links</h2>
+    <p>This site may link to third-party sites for convenience only; we don&rsquo;t control or take responsibility for their content.</p>
+
+    <h2>Limitation of Liability</h2>
+    <p>To the extent permitted by law, Highbar isn&rsquo;t liable for indirect, incidental, or consequential damages arising from your use of this site. This doesn&rsquo;t limit liability that can&rsquo;t lawfully be excluded.</p>
+
+    <h2>Governing Law</h2>
+    <p>These Terms are governed by New York law, without regard to conflict-of-laws principles.</p>
+
+    <h2>Changes to These Terms</h2>
+    <p>We may update these Terms periodically; the current version and &ldquo;Last updated&rdquo; date will always be posted here.</p>
+
+    <h2>Contact Us</h2>
+    <p><strong>Highbar Search LLC</strong><br>
+    New York, New York, United States<br>
+    <strong><a href="mailto:ben@highbarsearch.com">ben@highbarsearch.com</a></strong></p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <a href="/" class="logo"><img src="../logo-white.png" alt="Highbar Search"></a>
+    <div class="footer-links">
+      <a href="/#different">About Us</a>
+      <a href="/#candidates">Candidates</a>
+      <a href="/#companies">Companies</a>
+      <a href="mailto:ben@highbarsearch.com">Reach Out</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <div class="copyright">&copy; 2026 Highbar Search LLC. All rights reserved.</div>
+    <div class="footer-legal">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms-of-use/">Terms of Use</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
