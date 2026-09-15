@@ -2,12 +2,29 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="refresh" content="0; url=/#different">
-<link rel="canonical" href="/#different">
 <title>About Us | Highbar Search</title>
-<script>window.location.replace("/#different");</script>
+<noscript><meta http-equiv="refresh" content="0; url=/#different"></noscript>
+<script>
+  fetch('/').then(function (r) { return r.text(); }).then(function (html) {
+    document.open();
+    document.write(html);
+    document.close();
+    var tries = 0;
+    (function scrollWhenReady() {
+      var el = document.getElementById('different');
+      if (el) {
+        el.scrollIntoView();
+      } else if (tries < 20) {
+        tries++;
+        requestAnimationFrame(scrollWhenReady);
+      }
+    })();
+  }).catch(function () {
+    window.location.href = '/#different';
+  });
+</script>
 </head>
 <body>
-<p>Redirecting to <a href="/#different">Highbar Search &mdash; About Us</a>&hellip;</p>
+<noscript><p>JavaScript is required. <a href="/#different">Continue to Highbar Search &mdash; About Us</a>.</p></noscript>
 </body>
 </html>

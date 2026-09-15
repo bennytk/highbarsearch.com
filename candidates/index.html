@@ -2,12 +2,29 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="refresh" content="0; url=/#candidates">
-<link rel="canonical" href="/#candidates">
 <title>Candidates | Highbar Search</title>
-<script>window.location.replace("/#candidates");</script>
+<noscript><meta http-equiv="refresh" content="0; url=/#candidates"></noscript>
+<script>
+  fetch('/').then(function (r) { return r.text(); }).then(function (html) {
+    document.open();
+    document.write(html);
+    document.close();
+    var tries = 0;
+    (function scrollWhenReady() {
+      var el = document.getElementById('candidates');
+      if (el) {
+        el.scrollIntoView();
+      } else if (tries < 20) {
+        tries++;
+        requestAnimationFrame(scrollWhenReady);
+      }
+    })();
+  }).catch(function () {
+    window.location.href = '/#candidates';
+  });
+</script>
 </head>
 <body>
-<p>Redirecting to <a href="/#candidates">Highbar Search &mdash; Candidates</a>&hellip;</p>
+<noscript><p>JavaScript is required. <a href="/#candidates">Continue to Highbar Search &mdash; Candidates</a>.</p></noscript>
 </body>
 </html>

@@ -2,12 +2,29 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="refresh" content="0; url=/#companies">
-<link rel="canonical" href="/#companies">
 <title>Companies | Highbar Search</title>
-<script>window.location.replace("/#companies");</script>
+<noscript><meta http-equiv="refresh" content="0; url=/#companies"></noscript>
+<script>
+  fetch('/').then(function (r) { return r.text(); }).then(function (html) {
+    document.open();
+    document.write(html);
+    document.close();
+    var tries = 0;
+    (function scrollWhenReady() {
+      var el = document.getElementById('companies');
+      if (el) {
+        el.scrollIntoView();
+      } else if (tries < 20) {
+        tries++;
+        requestAnimationFrame(scrollWhenReady);
+      }
+    })();
+  }).catch(function () {
+    window.location.href = '/#companies';
+  });
+</script>
 </head>
 <body>
-<p>Redirecting to <a href="/#companies">Highbar Search &mdash; Companies</a>&hellip;</p>
+<noscript><p>JavaScript is required. <a href="/#companies">Continue to Highbar Search &mdash; Companies</a>.</p></noscript>
 </body>
 </html>
