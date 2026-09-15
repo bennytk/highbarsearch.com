@@ -1,103 +1,757 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Highbar Search</title>
-  <meta name="description" content="Highbar Search places high-horsepower generalist talent at high-growth brands.">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Highbar Search</title>
+<meta name="description" content="Highbar Search helps startups and scale-ups hire emerging leaders from the world's top consulting firms.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      min-height: 100vh;
+  :root {
+    --navy: #14233F;
+    --navy-2: #1B3A5C;
+    --navy-light: #B8CCE0;
+    --accent: #C1642F;
+    --panel: #EEF2F7;
+    --text: #2C3540;
+    --muted: #6B7686;
+    --faint: #97A2B0;
+    --rule: #DCE3EC;
+    --rule-dark: #2A3A54;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #fff;
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  @media (max-width: 700px) {
+    .wrap { padding: 0 24px; }
+  }
+
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--navy-2);
+  }
+
+  h1, h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: var(--navy);
+    font-weight: 600;
+    line-height: 1.15;
+  }
+
+  /* ── Nav ── */
+  header { border-bottom: 1px solid var(--rule); }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 48px;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 700px) { nav { padding: 12px 24px; } }
+
+  nav .logo { display: flex; align-items: center; }
+  nav .logo img { height: 58px; }
+
+  @media (max-width: 700px) { nav .logo img { height: 44px; } }
+
+  .nav-links { display: flex; align-items: center; gap: 36px; }
+
+  .nav-links a.link {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .nav-links a.link:hover { color: var(--navy-2); }
+
+  @media (max-width: 800px) { .nav-links .link { display: none; } }
+
+  .btn {
+    display: inline-block;
+    background: var(--navy);
+    color: #fff;
+    padding: 12px 26px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.875rem;
+    letter-spacing: 0.2px;
+    border: 1px solid var(--navy);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+
+  .btn:hover {
+    background: var(--navy-2);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(20, 35, 63, 0.18);
+  }
+
+  /* ── Hero ── */
+  #hero {
+    position: relative;
+    overflow: hidden;
+    padding: 64px 0 72px;
+    background-color: #fff;
+  }
+
+  #hero .hero-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  #hero h1 {
+    font-weight: 700;
+    font-size: clamp(2.2rem, 4.8vw, 3.9rem);
+    line-height: 1.12;
+    margin: 14px 0 20px;
+  }
+
+  #hero h1 .line {
+    display: block;
+    white-space: nowrap;
+  }
+
+  #hero h1 .accent { color: var(--accent); }
+
+  @media (max-width: 560px) {
+    #hero h1 .line { white-space: normal; }
+  }
+
+  #hero p {
+    font-size: 1.05rem;
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 750px;
+    margin: 0 0 28px;
+  }
+
+  @media (max-width: 700px) {
+    #hero { padding: 68px 0 76px; }
+    #hero .eyebrow { margin-bottom: 10px; }
+    #hero h1 { margin: 22px 0 28px; }
+    #hero p { margin-bottom: 36px; }
+  }
+
+  /* ── Sections ── */
+  section {
+    padding: 64px 0;
+  }
+
+  /* ── Scroll progress bar ── */
+  #scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: var(--accent);
+    z-index: 1000;
+    transition: width 0.1s linear;
+  }
+
+  section + section { border-top: 1px solid var(--rule); }
+
+  .section-head { max-width: 640px; margin-bottom: 8px; }
+  .section-head h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); margin-top: 10px; }
+  .section-head .section-subtitle { margin-top: 10px; color: var(--muted); font-size: 1.05rem; line-height: 1.7; }
+  #candidates .section-head, #companies .section-head { max-width: none; }
+  #candidates .section-head h2, #companies .section-head h2 { white-space: nowrap; }
+  @media (max-width: 700px) {
+    #candidates .section-head h2, #companies .section-head h2 { white-space: normal; font-size: clamp(1.6rem, 6vw, 2rem); }
+  }
+
+  /* ── What makes us different ── */
+  #different .diff-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1px 1fr;
+    gap: 56px;
+    align-items: start;
+    margin-top: 8px;
+  }
+
+  @media (max-width: 900px) {
+    #different .diff-grid { grid-template-columns: 1fr; }
+    #different .diff-divider { display: none; }
+  }
+
+  #different .diff-divider { background: var(--rule); width: 1px; align-self: stretch; }
+
+  .diff-headline {
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    line-height: 1.2;
+    margin: 14px 0 18px;
+    max-width: 480px;
+  }
+
+  #different .intro-lead {
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 26px;
+    font-size: 1rem;
+    max-width: 480px;
+  }
+
+  .diff-rule {
+    height: 1px;
+    background: var(--rule);
+    margin-bottom: 26px;
+  }
+
+  .roles-inline { margin-bottom: 26px; }
+
+  .roles-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--navy-2);
+    margin-bottom: 12px;
+  }
+
+  .roles-inline p {
+    color: var(--text);
+    font-size: 0.94rem;
+    line-height: 2;
+  }
+
+  .roles-inline p .sep { color: var(--accent); margin: 0 10px; }
+
+  @media (max-width: 700px) {
+    .roles-inline .roles-break { display: none; }
+    .roles-inline p { line-height: 2.2; }
+  }
+
+  .diff-cols {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    gap: 32px;
+  }
+
+  @media (max-width: 640px) {
+    .diff-cols { grid-template-columns: 1fr; gap: 40px; }
+    .diff-col-divider { display: none; }
+  }
+
+  .diff-col-divider { background: var(--rule); width: 1px; }
+
+  .diff-card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    margin-bottom: 18px;
+  }
+
+  .diff-card-icon svg { width: 20px; height: 20px; }
+  .diff-card-icon.accent-icon { background: var(--accent); }
+  .diff-card-icon.navy-icon { background: var(--navy); }
+
+  .diff-col h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .diff-col p { color: var(--muted); font-size: 1rem; line-height: 1.7; }
+
+  .founder-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .founder-card .eyebrow { margin-bottom: 20px; }
+
+  .founder-photo {
+    width: 168px;
+    height: 168px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 18px;
+  }
+
+  .founder-name-row {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .founder-name-row .name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.4rem;
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .founder-linkedin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    background: var(--navy);
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  .founder-linkedin svg { width: 10px; height: 10px; }
+  .founder-linkedin:hover { background: var(--navy-2); }
+
+  .founder-rule {
+    width: 28px;
+    height: 2px;
+    background: var(--accent);
+    margin: 18px 0 20px;
+  }
+
+  .founder-card p {
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 14px;
+  }
+
+  /* ── Process timeline ── */
+  .process-timeline {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    gap: 32px;
+    margin: 40px 0 0;
+  }
+
+  .process-timeline::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: calc(100% / 6);
+    right: calc(100% / 6);
+    height: 1px;
+    background: var(--rule);
+    z-index: 0;
+  }
+
+  @media (max-width: 800px) { .process-timeline { display: none; } }
+
+  .timeline-num {
+    position: relative;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  #companies .timeline-num { background: var(--accent); }
+
+  /* ── Process grids ── */
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 28px;
+  }
+
+  @media (max-width: 800px) {
+    .process-grid { grid-template-columns: 1fr; margin-top: 44px; counter-reset: step; }
+  }
+
+  .process-card {
+    position: relative;
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 28px 26px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  .process-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(20, 35, 63, 0.1);
+    border-color: var(--navy);
+  }
+
+  #companies .process-card:hover { border-color: var(--accent); }
+
+  .process-card-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .process-card-icon {
+    flex-shrink: 0;
+    width: 68px;
+    height: 68px;
+    color: var(--rule);
+    transition: color 0.25s ease;
+  }
+
+  .process-card-icon.emoji-icon {
+    width: auto;
+    height: auto;
+    font-size: 44px;
+    line-height: 1;
+  }
+
+  @media (max-width: 800px) {
+    .process-card-icon { width: 48px; height: 48px; }
+    .process-card-icon.emoji-icon { width: auto; height: auto; font-size: 32px; }
+    .process-card { padding: 24px 22px; counter-increment: step; }
+    .process-card::before {
+      content: counter(step);
+      position: absolute;
+      top: -16px;
+      left: 22px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: #fff;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      background: #FFFFFF;
-      border-top: 5px solid transparent;
-      border-image: linear-gradient(to right, #1B3A5C, #B8CCE0) 1;
-      color: #2C3E50;
-      padding: 32px 32px 24px;
-      text-align: center;
-      -webkit-font-smoothing: antialiased;
+      font-size: 0.85rem;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(20, 35, 63, 0.25);
     }
+    #companies .process-card::before { background: var(--accent); }
+  }
 
-    .logo {
-      width: 340px;
-      max-width: 70vw;
-      height: auto;
-      margin-bottom: 16px;
-      mix-blend-mode: multiply;
-    }
+  .process-card:hover .process-card-icon { color: var(--navy); }
+  #companies .process-card:hover .process-card-icon { color: var(--accent); }
 
-    .divider {
-      width: 48px;
-      height: 1px;
-      background: #B8CCE0;
-      margin-bottom: 20px;
-    }
+  .process-card h3 {
+    position: relative;
+    z-index: 1;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.4rem;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
 
-    h1 {
-      font-family: 'DM Serif Display', Georgia, serif;
-      font-size: clamp(1.9rem, 4vw, 2.6rem);
-      font-weight: 400;
-      color: #1B3A5C;
-      line-height: 1.25;
-      max-width: 520px;
-      margin-bottom: 24px;
-      letter-spacing: -0.01em;
-      padding: 0 16px;
-    }
+  .process-card-head h3 { margin-bottom: 0; }
 
-    p {
-      font-size: 1.05rem;
-      color: #6B7D8E;
-      line-height: 1.75;
-      max-width: 520px;
-      margin-bottom: 32px;
-      font-weight: 400;
-      padding: 0 16px;
-    }
+  .process-card p { position: relative; z-index: 1; color: var(--muted); font-size: 1rem; line-height: 1.7; }
+  .process-card p + p { margin-top: 12px; }
 
-    a {
-      display: inline-block;
-      background: #1B3A5C;
-      color: #fff;
-      padding: 15px 40px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.9rem;
-      letter-spacing: 0.5px;
-      transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
-    }
+  /* ── CTA banner ── */
+  #cta { background: var(--navy); padding: 64px 0 40px; }
 
-    a:hover {
-      background: #122840;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(27, 58, 92, 0.15);
-    }
+  #cta .cta-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
 
-    footer {
-      margin-top: auto;
-      padding-top: 24px;
-      font-size: 0.8rem;
-      color: #8E9BAA;
-    }
-  </style>
+  #cta h2 { color: #fff; font-size: 1.7rem; margin-bottom: 10px; }
+  #cta p { color: var(--navy-light); font-size: 1rem; }
+
+  .btn-white { background: #fff; color: var(--navy); border: 1px solid #fff; }
+  .btn-white:hover { background: #EEF2F6; box-shadow: none; transform: translateY(-1px); }
+
+  /* ── Footer ── */
+  footer { background: var(--navy); padding: 16px 0 26px; }
+
+  footer .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  footer .logo img {
+    height: 58px;
+  }
+
+  @media (max-width: 700px) {
+    footer .logo img { height: 44px; }
+    footer .footer-inner { flex-direction: column; align-items: center; gap: 18px; }
+    footer .footer-links { justify-content: center; gap: 18px; }
+  }
+
+  footer .footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
+
+  footer .footer-links a {
+    color: var(--navy-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+  }
+
+  footer .footer-links a:hover { color: #fff; }
+
+  footer .copyright {
+    text-align: center;
+    color: var(--faint);
+    font-size: 0.78rem;
+    margin-top: 28px;
+  }
+
+  footer .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+  }
+  footer .footer-bottom .copyright { margin-top: 0; }
+  footer .footer-legal { display: flex; gap: 18px; }
+  footer .footer-legal a {
+    color: var(--faint);
+    text-decoration: none;
+    font-size: 0.78rem;
+  }
+  footer .footer-legal a:hover { color: #fff; }
+</style>
 </head>
 <body>
-  <img src="logo-trimmed.png" alt="Highbar Search" class="logo">
-  <div class="divider"></div>
-  <h1>High horsepower talent for high growth companies</h1>
-  <p>Highbar Search helps start-ups and scale-ups hire emerging leaders from the world's leading consulting firms, investment banks and private equity houses</p>
-  <a href="mailto:ben@highbarsearch.com">Learn More</a>
-  <footer>&copy; 2026 Highbar Search LLC. All rights reserved.</footer>
+<div id="scroll-progress"></div>
+<header>
+  <nav>
+    <a href="#" class="logo"><img src="logo-new-trimmed.png" alt="Highbar Search"></a>
+    <div class="nav-links">
+      <a href="#different" class="link">About Us</a>
+      <a href="#candidates" class="link">Candidates</a>
+      <a href="#companies" class="link">Companies</a>
+      <a href="mailto:ben@highbarsearch.com" class="btn">Reach Out</a>
+    </div>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section id="hero">
+  <div class="wrap hero-inner">
+    <div class="eyebrow">Executive Search Firm for Top-Tier Consulting Alumni</div>
+    <h1><span class="line">High horsepower generalist talent</span><span class="line">for <span class="accent">high growth companies.</span></span></h1>
+    <p>Based in New York and founded by a former McKinsey consultant and venture capital investor, Highbar Search helps startups and scaleups hire emerging leaders who have cut their teeth at a top-tier consulting firm and want to put that experience to work building companies.</p>
+    <a href="mailto:ben@highbarsearch.com" class="btn">Reach Out</a>
+  </div></section>
+
+<!-- What makes us different -->
+<section id="different">
+  <div class="wrap">
+    <div class="diff-grid">
+      <div>
+        <div class="eyebrow">How We Are Different</div>
+        <h2 class="diff-headline">A candidate-first approach to executive search.</h2>
+        <p class="intro-lead">We specialize in a particular candidate archetype &mdash; the high horsepower generalist &mdash; and have built a deep, ever-growing network of exceptional candidates within this talent pool.</p>
+
+        <div class="diff-rule"></div>
+
+        <div class="roles-inline">
+          <div class="roles-label">Example Roles We&rsquo;ve Filled</div>
+          <p>Chief of Staff <span class="sep">|</span> AI Strategist <span class="sep">|</span> Founding BizOps <span class="sep">|</span> BizOps Lead <span class="sep">|</span><br class="roles-break">VP of Growth <span class="sep">|</span> Strategy &amp; Operations Manager <span class="sep">|</span> VP of Portfolio Growth</p>
+        </div>
+
+        <div class="diff-rule"></div>
+
+        <div class="diff-cols">
+          <div class="diff-col">
+            <div class="diff-card-icon navy-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg>
+            </div>
+            <h3>For Candidates</h3>
+            <p>We work with a range of interesting companies looking to hire people with your background, across a variety of industries, so there&rsquo;s a good chance we&rsquo;ll have an opportunity you&rsquo;re excited about. And as new roles come up that could be a better fit, we&rsquo;ll reach back out.</p>
+          </div>
+          <div class="diff-col-divider"></div>
+          <div class="diff-col">
+            <div class="diff-card-icon accent-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-6h6v6"/><path d="M9 12h.01M15 12h.01M9 8h.01M15 8h.01"/></svg>
+            </div>
+            <h3>For Companies</h3>
+            <p>We already have relationships with many of the generalists you may want to hire, and can schedule your first interview within days of getting started. We also know what good looks like and can help design an interview process that reliably identifies the strongest candidates.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="diff-divider"></div>
+
+      <div class="founder-card">
+        <div class="eyebrow">About the Founder</div>
+        <img src="098A6192 copy.jpeg" alt="Ben Falloon" class="founder-photo">
+        <div class="founder-name-row">
+          <div class="name">Ben Falloon</div>
+          <a href="https://www.linkedin.com/in/ben-falloon-3b3773b7/" class="founder-linkedin" aria-label="Ben Falloon on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zM8.5 8h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.66 1.8-2.66 3.65V23h-4V8z"/></svg>
+          </a>
+        </div>
+        <div class="founder-rule"></div>
+        <p>Ben spent the first three years of his career at McKinsey &amp; Company, working across Melbourne (where he grew up), London and Amsterdam. He then moved to New York to join an early-stage consumer venture capital firm, where he spent much of his time helping portfolio companies hire high horsepower generalist talent.</p>
+        <p>Ben founded Highbar Search because he enjoys helping ex-consultants navigate the move into startups, having been in their shoes not so long ago, and is a wholehearted believer in the impact talented generalists can have at early-stage companies, having seen it first hand as an investor.</p>
+      </div>
+    </div>
+  </div></section>
+
+<!-- We work with candidates -->
+<section id="candidates">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">How we work with candidates</div>
+      <h2>Part career coach, part opportunity curator.</h2>
+    </div>
+
+    <div class="process-timeline">
+      <div class="timeline-num">1</div>
+      <div class="timeline-num">2</div>
+      <div class="timeline-num">3</div>
+    </div>
+    <div class="process-grid">
+      <div class="process-card">
+        <div class="process-card-head">
+          <h3>Intro Chat</h3>
+          <svg class="process-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        </div>
+        <p>We start with you. What have you enjoyed in past roles? What haven&rsquo;t you enjoyed? How is that informing what&rsquo;s next?</p>
+        <p>From there, we&rsquo;ll zero in on a few key variables to help focus your search and inform the opportunities we share with you.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-card-head">
+          <h3>Opportunities</h3>
+          <svg class="process-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v13a1 1 0 01-1 1H6a1 1 0 01-1-1V3a1 1 0 011-1z"/><path d="M15 2v5h5"/><path d="M8 12.5h8M8 16h8M8 9h4"/></svg>
+        </div>
+        <p>At the end of our intro chat, we may share a few opportunities that fit your preferences and experience. If any stand out &mdash; and we encourage you to be selective &mdash; we&rsquo;ll submit your profile and kick off the process.</p>
+        <p>Whether or not there&rsquo;s a fit today, we view this as a long-term relationship and will continue sharing relevant opportunities as they arise.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-card-head">
+          <h3>Interviews</h3>
+          <svg class="process-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        </div>
+        <p>Throughout the interview process, we&rsquo;ll keep you informed on where things stand and share feedback and next steps as soon as we have them.</p>
+        <p>We&rsquo;ll also check in regularly to make sure the opportunity continues to feel like the right fit, and be available as a thought partner to help you evaluate the opportunity, weigh trade-offs and navigate the offer process.</p>
+      </div>
+    </div>
+  </div></section>
+
+<!-- How we work with companies -->
+<section id="companies">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">How we work with companies</div>
+      <h2>Part recruiter, part talent strategist.</h2>
+    </div>
+    <div class="process-timeline">
+      <div class="timeline-num">1</div>
+      <div class="timeline-num">2</div>
+      <div class="timeline-num">3</div>
+    </div>
+    <div class="process-grid">
+      <div class="process-card">
+        <div class="process-card-head">
+          <h3>Intro Chat</h3>
+          <svg class="process-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        </div>
+        <p>We start by getting a good understanding of what sets your company apart, where you are in the journey right now, how your team is structured, what you need from the hire, and any other relevant context around the search.</p>
+        <p>We also share our perspective on the ideal candidate profile, interview process design, market compensation, and any other areas where our experience can be helpful.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-card-head">
+          <h3>Candidates</h3>
+          <svg class="process-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <p>Because our searches draw from a similar universe of high horsepower generalists, we have a strong starting point for each new search and can typically introduce the first few vetted candidates within days.</p>
+        <p>We&rsquo;re deliberate about who we put forward, vetting carefully for both capability and genuine interest in the opportunity. Companies we work with typically interview around 5-10 candidates before making a hire.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-card-head">
+          <h3>Offer and Hire</h3>
+          <svg class="process-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4l3 3-9 9H4v-3l9-9z"/><path d="M3 20h18"/></svg>
+        </div>
+        <p>By the time you&rsquo;re ready to make an offer, we&rsquo;ll have a clear understanding of what matters most to the candidate and how they&rsquo;re thinking about the opportunity.</p>
+        <p>We use that context to help you shape the offer, navigate any final conversations, and ultimately get to a structure that works for both sides.</p>
+      </div>
+    </div>
+  </div></section>
+
+<!-- CTA banner -->
+<section id="cta">
+  <div class="wrap cta-inner">
+    <div>
+      <h2>Looking to add horsepower to your team?</h2>
+      <p>We&rsquo;d love to help you find someone great.</p>
+    </div>
+    <a href="mailto:ben@highbarsearch.com" class="btn btn-white">Reach Out</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <a href="#" class="logo"><img src="logo-white.png" alt="Highbar Search"></a>
+    <div class="footer-links">
+      <a href="#different">About Us</a>
+      <a href="#candidates">Candidates</a>
+      <a href="#companies">Companies</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <div class="copyright">&copy; 2026 Highbar Search LLC. All rights reserved.</div>
+    <div class="footer-legal">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms-of-use.html">Terms of Use</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var progress = document.getElementById('scroll-progress');
+    function updateProgress() {
+      var scrollTop = window.scrollY;
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progress.style.width = pct + '%';
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+    updateProgress();
+  })();
+</script>
+
 </body>
 </html>
